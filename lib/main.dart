@@ -3,9 +3,17 @@ import 'package:qrcode_generator/generate.dart';
 import 'package:qrcode_generator/homepage.dart';
 import 'package:qrcode_generator/scan.dart';
 import 'package:qrcode_generator/screens/signin_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(const MyApp());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initialisedApp();
+
+  runApp(MyApp());
+}
+
+class Firebase {
+  static initialisedApp() {}
 }
 
 class MyApp extends StatelessWidget {
@@ -25,5 +33,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
